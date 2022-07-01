@@ -1,4 +1,5 @@
 using DotnetCoreMVC.Data;
+using DotnetCoreMVC.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -58,6 +59,8 @@ namespace DotnetCoreMVC
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
